@@ -8,7 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/")
+@WebServlet(
+        name = "MainServlet",
+        urlPatterns = {
+                "/MainServlet"
+        }
+)
 public class MainServlet extends HttpServlet {
 
     @Override

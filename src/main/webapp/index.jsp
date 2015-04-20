@@ -36,8 +36,7 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="jumbotron well" id="head-jumbo">
-                <h1>Welcome!</h1>
-
+                <h1>Optimus Prime</h1>
                 <p>A simple tool to verify prime numbers</p>
             </div>
 
