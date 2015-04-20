@@ -36,21 +36,24 @@
         });
     </script>
 </head>
+
 <body>
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="jumbotron well" id="head-jumbo">
                 <h1>Optimus Prime</h1>
+
                 <p>A simple tool to verify prime numbers</p>
             </div>
 
             <form role="form">
-                <div class="form-group">
-                    <label for="prime-input">Number</label>
-                    <input type="number" class="form-control" id="prime-input"/>
+                <label for="prime-input">Number</label>
+
+                <div class="input-group">
+                    <input type="number" class="form-control" id="prime-input" aria-describedby="query-result"/>
+                    <span class="input-group-addon" id="query-result">Please enter a number</span>
                 </div>
-                <div class="form-group" id="query-result"></div>
             </form>
         </div>
     </div>
