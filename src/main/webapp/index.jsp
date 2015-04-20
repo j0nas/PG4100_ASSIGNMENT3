@@ -20,13 +20,18 @@
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script>
         $(function () {
+            var lastVal;
             const $prime = $('#prime-input');
+
             $prime.keyup(function () {
-                $.post('MainServlet', {
-                    number: $prime.val()
-                }, function (resp) {
-                    $('#query-result').text(resp == "true" ? "Is a prime number." : "Not a prime number");
-                });
+                if ($prime.val() != lastVal && $prime.val() != "") {
+                    lastVal = $prime.val();
+                    $.post('MainServlet', {
+                        number: $prime.val()
+                    }, function (resp) {
+                        $('#query-result').text(resp == "true" ? "Is a prime number." : "Not a prime number");
+                    });
+                }
             });
         });
     </script>
