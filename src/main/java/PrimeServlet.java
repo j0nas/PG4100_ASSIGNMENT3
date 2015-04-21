@@ -1,4 +1,5 @@
 import org.apache.commons.math3.primes.Primes;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,8 @@ public class PrimeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Logger.getLogger("PrimeServletLogger").info("POST request: " + req.getParameter(PARAM_NAME));
+
         try (PrintWriter writer = resp.getWriter()) {
             final int n = validateAndConvertNumberString(req.getParameter(PARAM_NAME));
             writer.print(n == -1 ? n : Primes.isPrime(n));
