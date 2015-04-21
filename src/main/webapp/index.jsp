@@ -59,7 +59,7 @@
 
                 <div class="input-group">
                     <!-- type should ideally be "number", but this disables the onKeyup listener for non-int values -->
-                    <input type="text" class="form-control" id="prime-input" aria-describedby="query-result"/>
+                    <input type="text" class="form-control" id="prime-input" aria-describedby="query-result" autofocus/>
                     <span class="input-group-addon" id="query-result">Please enter a number</span>
                 </div>
             </form>
