@@ -19,9 +19,9 @@
         }
     </style>
     <script>
-        const NUM_INVALID = "Enter a valid number";
-        const NUM_PRIME = "Is a prime number.";
-        const NUM_NOT_PRIME = "Not a prime number";
+        const NUM_INVALID = "Enter a valid integer";
+        const NUM_PRIME = "is a prime number";
+        const NUM_NOT_PRIME = "is not a prime number";
 
         const RESPONSE_IS_PRIME = "true";
         const RESPONSE_IS_INVALID = -1;
