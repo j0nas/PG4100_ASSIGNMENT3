@@ -8,18 +8,26 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(
-        name = "MainServlet",
-        urlPatterns = {
-                "/MainServlet"
-        }
-)
+@WebServlet()
 public class PrimeServlet extends HttpServlet {
+    private final String PARAM_NAME = "number";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (PrintWriter writer = resp.getWriter()) {
-            writer.print(Primes.isPrime(Integer.parseInt(req.getParameter("number"))));
+            final int n = validateAndConvertNumberString(req.getParameter(PARAM_NAME));
+            writer.print(n == -1 ? n : Primes.isPrime(n));
         }
+    }
+
+    protected int validateAndConvertNumberString(String number) {
+        int resultingNumber;
+        try {
+            resultingNumber = Integer.parseInt(number);
+        } catch (NumberFormatException e) {
+            resultingNumber = -1;
+        }
+
+        return resultingNumber;
     }
 }

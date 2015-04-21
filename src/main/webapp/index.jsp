@@ -19,6 +19,13 @@
         }
     </style>
     <script>
+        const NUM_INVALID = "Enter a valid number";
+        const NUM_PRIME = "Is a prime number.";
+        const NUM_NOT_PRIME = "Not a prime number";
+
+        const RESPONSE_IS_PRIME = "true";
+        const RESPONSE_IS_INVALID = -1;
+
         $(function () {
             var lastVal;
             const $prime = $('#prime-input');
@@ -29,7 +36,7 @@
                     $.post('primeservlet', {
                         number: $prime.val()
                     }, function (resp) {
-                        $('#query-result').text(resp == "true" ? "Is a prime number." : "Not a prime number");
+                        $('#query-result').text(resp == RESPONSE_IS_PRIME ? NUM_PRIME : resp == RESPONSE_IS_INVALID ? NUM_INVALID : NUM_NOT_PRIME);
                     });
                 }
             });
@@ -51,7 +58,8 @@
                 <label for="prime-input">Number</label>
 
                 <div class="input-group">
-                    <input type="number" class="form-control" id="prime-input" aria-describedby="query-result"/>
+                    <!-- type should ideally be "number", but this disables the onKeyup listener for non-int values -->
+                    <input type="text" class="form-control" id="prime-input" aria-describedby="query-result"/>
                     <span class="input-group-addon" id="query-result">Please enter a number</span>
                 </div>
             </form>

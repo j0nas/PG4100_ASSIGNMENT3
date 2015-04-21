@@ -4,7 +4,6 @@
 
 <web-app>
     <display-name>Optimus Prime</display-name>
-
     <servlet>
         <servlet-name>primeservlet</servlet-name>
         <servlet-class>
