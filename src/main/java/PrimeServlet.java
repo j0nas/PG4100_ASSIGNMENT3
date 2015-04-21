@@ -14,7 +14,7 @@ import java.io.PrintWriter;
                 "/MainServlet"
         }
 )
-public class MainServlet extends HttpServlet {
+public class PrimeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

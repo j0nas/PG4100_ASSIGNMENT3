@@ -1,5 +1,8 @@
 <html>
 <head>
+    <!-- Latest minified jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -15,9 +18,6 @@
             margin-top: 30px;
         }
     </style>
-
-    <!-- Latest minified jQuery -->
-    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script>
         $(function () {
             var lastVal;
@@ -26,7 +26,7 @@
             $prime.keyup(function () {
                 if ($prime.val() != lastVal && $prime.val() != "") {
                     lastVal = $prime.val();
-                    $.post('MainServlet', {
+                    $.post('primeservlet', {
                         number: $prime.val()
                     }, function (resp) {
                         $('#query-result').text(resp == "true" ? "Is a prime number." : "Not a prime number");
