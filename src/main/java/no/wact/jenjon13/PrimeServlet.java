@@ -17,9 +17,17 @@ public class PrimeServlet extends HttpServlet {
     private final static Logger log = LogManager.getLogger(PrimeServlet.class);
     private final String PARAM_NUMBER_TO_CHECK = "number";
 
+    /**
+     * Override of the javax.servlet.http.Servlet.doPost method.
+     * Handles incoming POST requests to the servlet.
+     *
+     * @param req  The incoming request. Expected to contain a key/value-pair which primality to validate.
+     * @param resp The response which is to be built up and sent back to the client
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         try (PrintWriter writer = resp.getWriter()) {
             final int n = validateAndConvertNumberString(req.getParameter(PARAM_NUMBER_TO_CHECK));
             final String result = (n == -1 ? String.valueOf(n) : String.valueOf(Primes.isPrime(n)));
