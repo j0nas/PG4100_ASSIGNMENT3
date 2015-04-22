@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="TRACE">
+    <!-- http://logging.apache.org/log4j/2.x/manual/configuration.html -->
+    <Filter level="trace" type="ThresholdFilter"/>
+
+    <Appenders>
+        <File name="MyFile" fileName="c:/logs/OptimusPrime_requests.log" immediateFlush="true">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="ErrorFile" fileName="c:/logs/OptimusPrime_errors.log" immediateFlush="true">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <RollingFile name="errors-log" fileName="C:/logs
+    </Appenders>
+
+    <Loggers>
+        <Logger name=" requestlogger" level="trace">
+            <appender-ref ref="MyFile" level="trace" additivity="false"/>
+        </Logger>
+        <Root name="errorlogger" level="error">
+            <AppenderRef ref="ErrorFile" level="error" additivity="false"/>
+        </Root>
+    </Loggers>
+</Configuration>

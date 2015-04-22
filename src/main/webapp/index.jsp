@@ -24,7 +24,7 @@
         const NUM_NOT_PRIME = "is not a prime number";
 
         const RESPONSE_IS_PRIME = "true";
-        const RESPONSE_IS_INVALID = -1;
+        const RESPONSE_IS_INVALID = "-1";
 
         $(function () {
             var lastVal;

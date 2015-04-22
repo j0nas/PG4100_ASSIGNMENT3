@@ -11,6 +11,6 @@
         </server>
     </servers>
 
-
-3. mvn tomcat:run (making sure tomcat runs at :8080)
-4. acceoss at root of localhost
+3. create a folder with read/write permissions for everyone @ C:/logs
+4. mvn tomcat:run (making sure tomcat runs at :8080)
+5. acceoss at root of localhost
