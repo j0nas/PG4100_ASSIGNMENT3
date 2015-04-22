@@ -7,7 +7,7 @@
     <servlet>
         <servlet-name>primeservlet</servlet-name>
         <servlet-class>
-            PrimeServlet
+            no.wact.jenjon13.PrimeServlet
         </servlet-class>
     </servlet>
     <servlet-mapping>

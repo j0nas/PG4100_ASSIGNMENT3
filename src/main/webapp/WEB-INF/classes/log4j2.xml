@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="TRACE">
-    <!-- http://logging.apache.org/log4j/2.x/manual/configuration.html -->
-    <Filter level="trace" type="ThresholdFilter"/>
+<Configuration monitorInterval="30">
+    <Properties>
+        <Property name="log_path">c:/logs</Property>
+    </Properties>
 
     <Appenders>
-        <File name="MyFile" fileName="c:/logs/OptimusPrime_requests.log" immediateFlush="true">
+        <File name="QueriesFile" fileName="${log_path}/OptimusPrime_queries.log" immediateFlush="true">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </File>
+        <File name="ErrorFile" fileName="${log_path}/OptimusPrime_errors.log" immediateFlush="true">
             <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
-
-        <File name="ErrorFile" fileName="c:/logs/OptimusPrime_errors.log" immediateFlush="true">
-            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-        </File>
-
-        <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-        </Console>
-
-        <RollingFile name="errors-log" fileName="C:/logs
     </Appenders>
 
     <Loggers>
-        <Logger name=" requestlogger" level="trace">
-            <appender-ref ref="MyFile" level="trace" additivity="false"/>
+        <Logger name="no.wact.jenjon13.PrimeServlet" additivity="true" level="debug">
+            <AppenderRef level="debug" ref="QueriesFile"/>
         </Logger>
-        <Root name="errorlogger" level="error">
-            <AppenderRef ref="ErrorFile" level="error" additivity="false"/>
+        <Root level="error">
+            <AppenderRef level="error" ref="ErrorFile"/>
         </Root>
     </Loggers>
 </Configuration>

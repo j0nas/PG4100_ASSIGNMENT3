@@ -1,3 +1,5 @@
+package no.wact.jenjon13;
+
 import org.apache.commons.math3.primes.Primes;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
