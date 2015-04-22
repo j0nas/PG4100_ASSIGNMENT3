@@ -18,6 +18,24 @@ public class PrimeServlet extends HttpServlet {
     private final String PARAM_NUMBER_TO_CHECK = "number";
 
     /**
+     * Converts a String-represented integer to an int, using Integer.parseInt.
+     *
+     * @param number The number to convert to an int.
+     * @return The converted number as an int, or -1 if the conversion fails.
+     */
+    protected static int validateAndConvertNumberString(String number) {
+        int resultingNumber;
+        try {
+            resultingNumber = Integer.parseInt(number);
+        } catch (NumberFormatException e) {
+            log.error("Could not convert to number: " + number, e);
+            resultingNumber = -1;
+        }
+
+        return resultingNumber;
+    }
+
+    /**
      * Override of the javax.servlet.http.Servlet.doPost method.
      * Handles incoming POST requests to the servlet.
      *
@@ -36,23 +54,5 @@ public class PrimeServlet extends HttpServlet {
             log.info(String.format("POST request: '%s' = %s | response = '%s'",
                     PARAM_NUMBER_TO_CHECK, req.getParameter(PARAM_NUMBER_TO_CHECK), result));
         }
-    }
-
-    /**
-     * Converts a String-represented integer to an int, using Integer.parseInt.
-     *
-     * @param number The number to convert to an int.
-     * @return The converted number as an int, or -1 if the conversion fails.
-     */
-    protected int validateAndConvertNumberString(String number) {
-        int resultingNumber;
-        try {
-            resultingNumber = Integer.parseInt(number);
-        } catch (NumberFormatException e) {
-            log.error("Could not convert to number: " + number, e);
-            resultingNumber = -1;
-        }
-
-        return resultingNumber;
     }
 }
