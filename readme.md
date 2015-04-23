@@ -1,16 +1,7 @@
 ##Optimus Prime
 
-1. mvn install
-2. configure settings.xml:
-
-    <servers>
-        <server>
-            <id>enter_servername_here</id>
-            <username>enter_username_here</username>
-            <password>enter_password_here</password>
-        </server>
-    </servers>
-
-3. create a folder with read/write permissions for everyone @ C:/logs
-4. mvn tomcat:run (making sure tomcat runs at :8080)
-5. acceoss at root of localhost
+1. Open in IntelliJ, "Add as Maven project" when prompted.
+2. CTRL+SHIFT+A -> "Maven Projects"
+3. Lifecycle -> "install" -> "Reimport All Maven Projects" 
+4. Plugins -> tomcat -> "tomcat:run"
+5. Open a web browser and access the application at http://localhost:8080/
