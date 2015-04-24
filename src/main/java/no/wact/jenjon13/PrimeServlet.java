@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 @WebServlet
 public class PrimeServlet extends HttpServlet {
     private final static Logger log = LogManager.getLogger(PrimeServlet.class);
-    private final String PARAM_NUMBER_TO_CHECK = "number";
+    public static final String PARAM_NUMBER_TO_CHECK = "number";
 
     /**
      * Converts a String-represented integer to an int, using Integer.parseInt.

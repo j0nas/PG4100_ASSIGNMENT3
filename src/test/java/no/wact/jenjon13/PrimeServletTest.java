@@ -5,6 +5,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.*;
+
 public class PrimeServletTest {
 
     @Before
@@ -19,7 +27,30 @@ public class PrimeServletTest {
 
     @Test
     public void testDoPost() throws Exception {
+        final HttpServletRequest requestMock = mock(HttpServletRequest.class);
+        final HttpServletResponse responseMock = mock(HttpServletResponse.class);
 
+        final StringWriter stringWriter = new StringWriter();
+        final PrintWriter writer = new PrintWriter(stringWriter);
+        when(responseMock.getWriter()).thenReturn(writer);
+
+        int[] primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 27};
+        int currentPrime = 0;
+
+        final PrimeServlet primeServlet = new PrimeServlet();
+        given(requestMock.getParameter(PrimeServlet.PARAM_NUMBER_TO_CHECK))
+                .willReturn(String.valueOf(primes[currentPrime]));
+
+        primeServlet.doPost(requestMock, responseMock);
+        primeServlet.doPost(requestMock, responseMock);
+        primeServlet.doPost(requestMock, responseMock);
+        primeServlet.doPost(requestMock, responseMock);
+
+
+        verify(requestMock, atLeast(1)).getParameter(PrimeServlet.PARAM_NUMBER_TO_CHECK);
+        writer.flush();
+
+        System.out.println(stringWriter.toString());
     }
 
     @Test
