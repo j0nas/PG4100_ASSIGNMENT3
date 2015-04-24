@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Loggers>
+        <!-- Disable error stacktraces for tests -->
+        <Root level="fatal"></Root>
+    </Loggers>
+</Configuration>

@@ -14,8 +14,8 @@ import java.io.PrintWriter;
 
 @WebServlet
 public class PrimeServlet extends HttpServlet {
-    private final static Logger log = LogManager.getLogger(PrimeServlet.class);
     public static final String PARAM_NUMBER_TO_CHECK = "number";
+    private final static Logger log = LogManager.getLogger(PrimeServlet.class);
 
     /**
      * Converts a String-represented integer to an int, using Integer.parseInt.
@@ -48,7 +48,7 @@ public class PrimeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (PrintWriter writer = resp.getWriter()) {
             final int n = validateAndConvertNumberString(req.getParameter(PARAM_NUMBER_TO_CHECK));
-            final String result = (n == -1 ? String.valueOf(n) : String.valueOf(Primes.isPrime(n)));
+            final String result = (String.valueOf(n == -1 ? n : Primes.isPrime(n)));
 
             writer.print(result);
             log.info(String.format("POST request: '%s' = %s | response = '%s'",
