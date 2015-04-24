@@ -13,11 +13,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <title>Optimus Prime - Index</title>
 
-    <style type="text/css">
-        #head-jumbo {
-            margin-top: 30px;
-        }
-    </style>
+    <!--style type="text/css"></style-->
+    <link rel="stylesheet" href="style.css">
     <script>
         const NUM_INVALID = "Enter a valid integer";
         const NUM_PRIME = "is a prime number";
@@ -33,7 +30,7 @@
             $prime.keyup(function () {
                 if ($prime.val() != lastVal && $prime.val() != "") {
                     lastVal = $prime.val();
-                    $.post('/primeservlet', {
+                    $.post('./primeservlet', {
                         number: $prime.val()
                     }, function (resp) {
                         $('#query-result').text(resp == RESPONSE_IS_PRIME ? NUM_PRIME : resp == RESPONSE_IS_INVALID ? NUM_INVALID : NUM_NOT_PRIME);
