@@ -33,7 +33,7 @@
             $prime.keyup(function () {
                 if ($prime.val() != lastVal && $prime.val() != "") {
                     lastVal = $prime.val();
-                    $.post('primeservlet', {
+                    $.post('/primeservlet', {
                         number: $prime.val()
                     }, function (resp) {
                         $('#query-result').text(resp == RESPONSE_IS_PRIME ? NUM_PRIME : resp == RESPONSE_IS_INVALID ? NUM_INVALID : NUM_NOT_PRIME);
