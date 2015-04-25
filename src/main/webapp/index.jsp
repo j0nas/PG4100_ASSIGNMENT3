@@ -11,10 +11,11 @@
 
     <!-- Latest minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <title>Optimus Prime - Index</title>
 
-    <!--style type="text/css"></style-->
+    <!-- Locally defined styles -->
     <link rel="stylesheet" href="style.css">
+
+    <title>Optimus Prime - Index</title>
     <script>
         const NUM_INVALID = "Enter a valid integer";
         const NUM_PRIME = "is a prime number";
