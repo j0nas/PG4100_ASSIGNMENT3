@@ -70,18 +70,4 @@ public class PrimeServletTest {
                     "-1", testDoPost(invalidQuery));
         }
     }
-
-    @Test
-    public void testValidateAndConvertValidNumberConvertsToString() throws Exception {
-        for (int i = 0; i < 11; i++) {
-            Assert.assertEquals("The method should convert the provided String to the expected return value",
-                    i, PrimeServlet.validateAndConvertNumberString(String.valueOf(i)));
-        }
-    }
-
-    @Test
-    public void testValidateAndConvert_InvalidCharReturnsMinusOne() throws Exception {
-        Assert.assertEquals("The method should return -1 to represent invalid input",
-                -1, PrimeServlet.validateAndConvertNumberString("Ø"));
-    }
 }
