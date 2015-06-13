@@ -41,8 +41,8 @@ public class PrimeServlet extends HttpServlet {
      *
      * @param req  The incoming request. Expected to contain a key/value-pair which primality to validate.
      * @param resp The response which is to be built up and sent back to the client
-     * @throws ServletException
-     * @throws IOException
+     * @throws ServletException If any binding errors occur
+     * @throws IOException If any binding errors occur
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
