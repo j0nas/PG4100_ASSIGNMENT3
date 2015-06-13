@@ -6,6 +6,20 @@
     <packaging>war</packaging>
     <version>1.0</version>
     <name>Optimus Prime</name>
+    <description>
+        This is a simple application that allows users to validate prime numbers asynchronously through a web interface.
+    </description>
+    <developers>
+        <developer>
+            <id>j0nas</id>
+            <name>Jonas Jensen</name>
+            <email>jenjon13@student.westerdals.no</email>
+            <url>https://github.com/j0nas</url>
+            <organization>Westerdals Oslo ACT</organization>
+            <organizationUrl>http://www.westerdals.no</organizationUrl>
+        </developer>
+    </developers>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
